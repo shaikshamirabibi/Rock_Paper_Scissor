@@ -2,15 +2,21 @@ import random
 
 choices = ["rock", "paper", "scissor"]
 
-count_user = 0
-computer_number_of_wins = 0
+user_score = 0
+computer_score = 0
 
 while True:
 
-    user = input("Enter rock, paper or scissor: ")
+    user = input("Enter rock, paper or scissor: ").lower().strip()
+
+    if user not in choices:
+        print("Invalid choice! Please enter rock, paper, or scissor.")
+        continue
+
     computer = random.choice(choices)
 
     print("Computer chose:", computer)
+
 
     if user == computer:
         print("Match Draw")
@@ -19,16 +25,27 @@ while True:
          (user == "paper" and computer == "rock") or \
          (user == "scissor" and computer == "paper"):
         print("User Wins")
-        count_user += 1
+        user_score += 1
 
     else:
         print("Computer Wins")
-        computer_number_of_wins += 1
+        computer_score += 1
 
-    print("User Score:", count_user)
-    print("Computer Score:", computer_number_of_wins)
+    print("User Score:", user_score)
+    print("Computer Score:", computer_score)
 
     play_again = input("Do you want to play again? (yes/no): ")
 
     if play_again.lower() != "yes":
-        break
+    print("\nFinal Score:")
+    print("User Score:", user_score)
+    print("Computer Score:", computer_score)
+
+    if user_score > computer_score:
+        print("Congratulations! You won the game!")
+    elif computer_score > user_score:
+        print("Computer won the game!")
+    else:
+        print("The game is a draw!")
+
+    break
