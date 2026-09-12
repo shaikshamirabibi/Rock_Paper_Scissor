@@ -37,9 +37,9 @@ while True:
     play_again = input("Do you want to play again? (yes/no): ")
 
     if play_again.lower() != "yes":
-    print("\nFinal Score:")
-    print("User Score:", user_score)
-    print("Computer Score:", computer_score)
+        print("\nFinal Score:")
+        print("User Score:", user_score)
+        print("Computer Score:", computer_score)
 
     if user_score > computer_score:
         print("Congratulations! You won the game!")
